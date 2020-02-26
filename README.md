@@ -1,24 +1,30 @@
 # cloud-service-catalog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment
+ruby '2.6.3'
+rails '6.0.2'
+default rails environment
 
-Things you may want to cover:
+## Setup
+```sh
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
+```
+## Exceptions
+To run the Job first time, run in rails console
+```sh
+rails console
+> AwsCloudfrontPricingSyncJob.perform_now
+```
 
-* Ruby version
+## To test
+* After the setup, execute the Job through rails console
+* Open browser window and open API url: [localhost:3000](http://localhost:3000/service/AmazonCloudFront/region/us-east-1.json)
+* Pass date as parameter to filter by date - date on which data is synced: [localhost with date](http://localhost:3000/service/AmazonCloudFront/region/us-east-1.json?date=2018-09-01)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## ToDo
+* Added Scheduler - resque
+* Add rspec
+* Added validations and Error handling
