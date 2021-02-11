@@ -198,7 +198,7 @@ else
 fi
 
 #check version. We need to install java 8 for older version(2.1, 2.0 or 1.x versions)
-VERSION=`unzip -p $AMS_BASE/ant-media-server.jar META-INF/MANIFEST.MF | grep "Implementation-Version"|cut -d ' ' -f2`
+VERSION=`unzip -p $AMS_BASE/ant-media-server.jar META-INF/MANIFEST.MF | grep "Implementation-Version"|cut -d \  -f2`
 if [[ $VERSION == 2.1* || $VERSION == 2.0* || $VERSION == 1.* ]];
 then
   if [ "$ID" == "ubuntu" ]; 
